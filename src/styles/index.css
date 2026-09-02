@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: #FAF8F5;
+    color: #1A1715;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom Luxury Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FAF8F5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C5A059;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9E7B35;
+  }
+}
+
+@layer utilities {
+  /* Luxury Gold Gradients & Shimmer */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #DFBA73 0%, #C5A059 50%, #9E7B35 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gold-light {
+    background: linear-gradient(135deg, #FFF0D0 0%, #EAD5A8 50%, #C5A059 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, #DFBA73 0%, #C5A059 50%, #9E7B35 100%);
+  }
+
+  .border-gold-gradient {
+    border-image: linear-gradient(135deg, #DFBA73, #C5A059, #9E7B35) 1;
+  }
+
+  /* Glassmorphic Luxury Cards */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    box-shadow: 0 10px 30px -5px rgba(197, 160, 89, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+  }
+
+  .glass-card-dark {
+    background: rgba(26, 23, 21, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-card-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -10px rgba(197, 160, 89, 0.18), 0 8px 16px -4px rgba(0, 0, 0, 0.06);
+    border-color: rgba(197, 160, 89, 0.45);
+  }
+
+  /* Shimmering Button Effect */
+  .gold-shimmer-btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #DFBA73 0%, #C5A059 50%, #9E7B35 100%);
+    transition: all 0.3s ease;
+  }
+  .gold-shimmer-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      60deg,
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0.35) 50%,
+      rgba(255, 255, 255, 0) 80%
+    );
+    transform: rotate(30deg) translateX(-100%);
+    animation: shimmerEffect 4s infinite ease-in-out;
+  }
+
+  @keyframes shimmerEffect {
+    0% {
+      transform: rotate(30deg) translateX(-100%);
+    }
+    30%, 100% {
+      transform: rotate(30deg) translateX(100%);
+    }
+  }
+
+  /* Vinyl disc sound wave visualizer */
+  .equalizer-bar {
+    animation: equalize 1.2s infinite ease-in-out;
+  }
+  .equalizer-bar:nth-child(1) { animation-delay: 0.1s; }
+  .equalizer-bar:nth-child(2) { animation-delay: 0.3s; }
+  .equalizer-bar:nth-child(3) { animation-delay: 0.2s; }
+  .equalizer-bar:nth-child(4) { animation-delay: 0.4s; }
+
+  @keyframes equalize {
+    0%, 100% { height: 4px; }
+    50% { height: 18px; }
+  }
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

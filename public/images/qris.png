@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 380" width="320" height="380">
+  <defs>
+    <linearGradient id="qrisHeader" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ED1C24" />
+      <stop offset="100%" stop-color="#A51016" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Card -->
+  <rect width="320" height="380" rx="16" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2" />
+  
+  <!-- QRIS Header -->
+  <rect width="320" height="60" rx="16" fill="url(#qrisHeader)" />
+  <rect y="40" width="320" height="20" fill="url(#qrisHeader)" />
+  <text x="160" y="38" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="20" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">QRIS</text>
+  <text x="160" y="52" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FEE2E2" text-anchor="middle">QR STANDAR PEMBAYARAN NASIONAL</text>
+
+  <!-- Merchant Name -->
+  <text x="160" y="85" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="14" font-weight="bold" fill="#1F2937" text-anchor="middle">WEDDING OF RIZKI &amp; AMELIA</text>
+  <text x="160" y="100" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="10" fill="#6B7280" text-anchor="middle">NMID: ID1020261212001</text>
+
+  <!-- QR Code Mockup Graphics -->
+  <rect x="50" y="115" width="220" height="220" rx="8" fill="#F9FAFB" stroke="#D1D5DB" stroke-width="1.5" />
+  
+  <!-- QR Corners -->
+  <!-- Top Left -->
+  <rect x="65" y="130" width="45" height="45" fill="#111827" rx="4" />
+  <rect x="73" y="138" width="29" height="29" fill="#FFFFFF" rx="2" />
+  <rect x="80" y="145" width="15" height="15" fill="#111827" />
+
+  <!-- Top Right -->
+  <rect x="210" y="130" width="45" height="45" fill="#111827" rx="4" />
+  <rect x="218" y="138" width="29" height="29" fill="#FFFFFF" rx="2" />
+  <rect x="225" y="145" width="15" height="15" fill="#111827" />
+
+  <!-- Bottom Left -->
+  <rect x="65" y="275" width="45" height="45" fill="#111827" rx="4" />
+  <rect x="73" y="283" width="29" height="29" fill="#FFFFFF" rx="2" />
+  <rect x="80" y="290" width="15" height="15" fill="#111827" />
+
+  <!-- QR Pattern Grid Dots -->
+  <g fill="#1F2937">
+    <rect x="125" y="130" width="10" height="10" /><rect x="145" y="130" width="10" height="20" /><rect x="165" y="130" width="20" height="10" /><rect x="190" y="130" width="10" height="10" />
+    <rect x="125" y="150" width="20" height="10" /><rect x="155" y="150" width="10" height="10" /><rect x="175" y="150" width="10" height="20" /><rect x="195" y="150" width="5" height="10" />
+    <rect x="125" y="170" width="10" height="20" /><rect x="145" y="170" width="20" height="10" /><rect x="185" y="170" width="15" height="10" />
+    <rect x="65" y="185" width="20" height="10" /><rect x="95" y="185" width="15" height="15" />
+    <rect x="65" y="205" width="10" height="20" /><rect x="85" y="210" width="20" height="10" /><rect x="115" y="200" width="15" height="15" />
+    <rect x="140" y="195" width="40" height="40" rx="6" fill="#C5A059" />
+    <!-- Center Icon in QR -->
+    <text x="160" y="222" font-family="'Playfair Display', serif" font-size="18" font-weight="bold" fill="#FFFFFF" text-anchor="middle">R&amp;A</text>
+    <rect x="190" y="195" width="10" height="15" /><rect x="210" y="185" width="20" height="10" /><rect x="240" y="190" width="15" height="15" /><rect x="215" y="205" width="15" height="20" />
+    <rect x="125" y="245" width="20" height="10" /><rect x="155" y="245" width="10" height="20" /><rect x="175" y="245" width="30" height="10" /><rect x="215" y="240" width="10" height="10" /><rect x="235" y="245" width="20" height="15" />
+    <rect x="125" y="270" width="15" height="20" /><rect x="150" y="275" width="15" height="10" /><rect x="175" y="265" width="10" height="30" /><rect x="195" y="270" width="20" height="10" /><rect x="225" y="270" width="15" height="15" /><rect x="245" y="270" width="10" height="20" />
+    <rect x="125" y="300" width="25" height="15" /><rect x="160" y="305" width="25" height="10" /><rect x="195" y="295" width="15" height="20" /><rect x="220" y="300" width="35" height="15" />
+  </g>
+
+  <!-- Bottom Info -->
+  <text x="160" y="355" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="10" fill="#9CA3AF" text-anchor="middle">Scan dengan aplikasi m-banking atau e-wallet apa saja</text>
+</svg>

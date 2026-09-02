@@ -34,7 +34,7 @@ export const weddingConfig: WeddingConfig = {
     description: "Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dalam momen istimewa pernikahan kami. Rizki & Amelia.",
     ogImage: "/images/og-preview.jpg",
     hashtag: "#RizkiAmeliaInLove",
-    baseUrl: "https://undangan-rizki-amelia.vercel.app"
+    baseUrl: "https://wedding-invitation-dssssssss.vercel.app"
   },
 
   // 3. Data Mempelai (Couple)

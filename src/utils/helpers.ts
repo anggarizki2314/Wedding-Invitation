@@ -40,7 +40,7 @@ export function generateGuestUrl(guestName: string, customBaseUrl?: string): str
 }
 
 /**
- * Generates a clean, aesthetic WhatsApp broadcast invitation message
+ * Generates an aesthetic WhatsApp broadcast invitation message complete with Venue and Google Maps link
  */
 export function generateWhatsAppBroadcastMessage(
   guestName: string,
@@ -49,14 +49,18 @@ export function generateWhatsAppBroadcastMessage(
   const groom = weddingConfig.couple.groom.name
   const bride = weddingConfig.couple.bride.name
   const date = weddingConfig.wedding.date
+  const venue = weddingConfig.wedding.akad.venue
+  const mapsUrl = weddingConfig.wedding.akad.mapsUrl
 
   return (
     `Kepada Yth.\n` +
     `Bapak/Ibu/Saudara/i: *${guestName}*\n\n` +
     `Tanpa mengurangi rasa hormat, perkenankan kami mengundang Anda untuk hadir dan memberikan doa restu pada hari bahagia pernikahan kami:\n\n` +
-    `*${groom} & ${bride}*\n` +
-    `*${date}*\n\n` +
-    `Untuk informasi lengkap mengenai detail acara & konfirmasi kehadiran, silakan buka tautan undangan resmi berikut:\n` +
+    `*${groom} & ${bride}*\n\n` +
+    `*Waktu:* ${date}\n` +
+    `*Lokasi:* ${venue}\n` +
+    `*Petunjuk Arah (Maps):* ${mapsUrl}\n\n` +
+    `Untuk melihat detail seluruh rangkaian acara, reservasi kehadiran & ucapan doa, silakan buka tautan undangan resmi berikut:\n` +
     `${guestUrl}\n\n` +
     `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.\n\n` +
     `Terima kasih.\n` +

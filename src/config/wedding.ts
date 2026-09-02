@@ -175,8 +175,8 @@ export const weddingConfig: WeddingConfig = {
   // 8. Musik Latar Belakang (Audio Player)
   music: {
     src: "/music/wedding-song.mp3",
-    title: "A Thousand Years (Acoustic Piano)",
-    artist: "Romantic Wedding Orchestra",
+    title: "Pernikahan Kita (Acoustic Piano)",
+    artist: "Romantic Wedding",
     autoplayOnOpen: true,
   },
 

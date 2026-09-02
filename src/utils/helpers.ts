@@ -3,7 +3,6 @@ import { weddingConfig } from '../config/wedding'
 /**
  * Extracts the personalized guest name from the browser URL parameters
  * Handles: ?to=..., ?u=..., ?nama=..., ?guest=...
- * Supports +, %20, and all URL-encoded strings safely with fallback.
  */
 export function getGuestNameFromUrl(): string {
   if (typeof window === 'undefined') return 'Tamu Undangan'
@@ -18,7 +17,6 @@ export function getGuestNameFromUrl(): string {
       searchParams.get('p')
 
     if (rawGuest && rawGuest.trim().length > 0) {
-      // Decode and sanitize
       return decodeURIComponent(rawGuest.trim().replace(/\+/g, ' '))
     }
   } catch (e) {
@@ -35,14 +33,14 @@ export function generateGuestUrl(guestName: string, customBaseUrl?: string): str
   const base =
     customBaseUrl ||
     weddingConfig.meta.baseUrl ||
-    (typeof window !== 'undefined' ? window.location.origin : 'https://undangan-pernikahan.vercel.app')
+    (typeof window !== 'undefined' ? window.location.origin : 'https://wedding-invitation-dssssssss.vercel.app')
 
   const encodedName = encodeURIComponent(guestName.trim()).replace(/%20/g, '+')
   return `${base}/?to=${encodedName}`
 }
 
 /**
- * Generates an elegant WhatsApp broadcast invitation message with the personalized guest URL
+ * Generates a clean, aesthetic WhatsApp broadcast invitation message
  */
 export function generateWhatsAppBroadcastMessage(
   guestName: string,
@@ -55,12 +53,12 @@ export function generateWhatsAppBroadcastMessage(
   return (
     `Kepada Yth.\n` +
     `Bapak/Ibu/Saudara/i: *${guestName}*\n\n` +
-    `Tanpa mengurangi rasa hormat, perkenankan kami mengundang Anda untuk menghadiri momen istimewa pernikahan kami:\n\n` +
-    `💍 *${groom} & ${bride}*\n` +
-    `📅 *${date}*\n\n` +
-    `Untuk melihat detail rangkaian acara & konfirmasi kehadiran, silakan buka tautan undangan resmi berikut:\n` +
+    `Tanpa mengurangi rasa hormat, perkenankan kami mengundang Anda untuk hadir dan memberikan doa restu pada hari bahagia pernikahan kami:\n\n` +
+    `*${groom} & ${bride}*\n` +
+    `*${date}*\n\n` +
+    `Untuk informasi lengkap mengenai detail acara & konfirmasi kehadiran, silakan buka tautan undangan resmi berikut:\n` +
     `${guestUrl}\n\n` +
-    `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.\n\n` +
+    `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.\n\n` +
     `Terima kasih.\n` +
     `Salam hangat,\n` +
     `*${groom} & ${bride}*`

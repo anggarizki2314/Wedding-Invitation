@@ -44,6 +44,7 @@ export function generateGuestUrl(guestName?: string, customBaseUrl?: string): st
 
 /**
  * Generates an aesthetic WhatsApp broadcast invitation message (Format A: Formal, Sopan & Islami)
+ * IMPORTANT: Website invitation URL is placed FIRST so WhatsApp crawler renders the wedding card preview instead of maps!
  */
 export function generateWhatsAppBroadcastMessage(
   _guestName?: string,
@@ -62,11 +63,11 @@ export function generateWhatsAppBroadcastMessage(
     `Bapak/Ibu/Saudara/i & Keluarga\n\n` +
     `Tanpa mengurangi rasa hormat, dengan memohon rahmat dan ridho Allah SWT, perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia pernikahan kami:\n\n` +
     `*${groom} & ${bride}*\n\n` +
+    `Buka tautan undangan resmi kami di:\n` +
+    `${inviteUrl}\n\n` +
     `*Waktu:* ${date}\n` +
     `*Lokasi:* ${venue}\n` +
-    `*Petunjuk Arah (Google Maps):* ${mapsUrl}\n\n` +
-    `Detail seluruh rangkaian acara, reservasi kehadiran & ucapan doa dapat dilihat pada tautan undangan resmi berikut:\n` +
-    `${inviteUrl}\n\n` +
+    `*Petunjuk Arah (Maps):* ${mapsUrl}\n\n` +
     `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.\n\n` +
     `Atas perhatian dan doa restunya, kami ucapkan terima kasih yang tulus.\n\n` +
     `Wassalamu’alaikum Warahmatullahi Wabarakatuh.\n\n` +

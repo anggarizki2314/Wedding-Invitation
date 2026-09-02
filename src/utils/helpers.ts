@@ -43,7 +43,7 @@ export function generateGuestUrl(guestName?: string, customBaseUrl?: string): st
 }
 
 /**
- * Generates an aesthetic WhatsApp broadcast invitation message with Venue, Maps, and clean Link
+ * Generates an aesthetic WhatsApp broadcast invitation message (Format A: Formal, Sopan & Islami)
  */
 export function generateWhatsAppBroadcastMessage(
   _guestName?: string,
@@ -57,19 +57,22 @@ export function generateWhatsAppBroadcastMessage(
   const inviteUrl = weddingConfig.meta.baseUrl || 'https://wedding-invitation-dssssssss.vercel.app/'
 
   return (
+    `Assalamu’alaikum Warahmatullahi Wabarakatuh / Salam Sejahtera,\n\n` +
     `Kepada Yth.\n` +
     `Bapak/Ibu/Saudara/i & Keluarga\n\n` +
-    `Tanpa mengurangi rasa hormat, perkenankan kami mengundang Anda untuk hadir dan memberikan doa restu pada hari bahagia pernikahan kami:\n\n` +
+    `Tanpa mengurangi rasa hormat, dengan memohon rahmat dan ridho Allah SWT, perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia pernikahan kami:\n\n` +
     `*${groom} & ${bride}*\n\n` +
     `*Waktu:* ${date}\n` +
     `*Lokasi:* ${venue}\n` +
-    `*Petunjuk Arah (Maps):* ${mapsUrl}\n\n` +
-    `Untuk melihat detail seluruh rangkaian acara, reservasi kehadiran & ucapan doa, silakan buka tautan undangan resmi berikut:\n` +
+    `*Petunjuk Arah (Google Maps):* ${mapsUrl}\n\n` +
+    `Detail seluruh rangkaian acara, reservasi kehadiran & ucapan doa dapat dilihat pada tautan undangan resmi berikut:\n` +
     `${inviteUrl}\n\n` +
-    `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.\n\n` +
-    `Terima kasih.\n` +
-    `Salam hangat,\n` +
-    `*${groom} & ${bride}*`
+    `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.\n\n` +
+    `Atas perhatian dan doa restunya, kami ucapkan terima kasih yang tulus.\n\n` +
+    `Wassalamu’alaikum Warahmatullahi Wabarakatuh.\n\n` +
+    `Kami yang berbahagia,\n` +
+    `*${groom} & ${bride}*\n` +
+    `(Beserta Keluarga Besar Kedua Mempelai)`
   )
 }
 

@@ -4,13 +4,11 @@ import confetti from 'canvas-confetti'
 import { weddingConfig } from '../config/wedding'
 
 interface OpeningCoverProps {
-  guestName: string
   isOpen: boolean
   onOpen: () => void
 }
 
 export const OpeningCover: React.FC<OpeningCoverProps> = ({
-  guestName,
   isOpen,
   onOpen,
 }) => {
@@ -84,16 +82,13 @@ export const OpeningCover: React.FC<OpeningCoverProps> = ({
           <div className="h-px w-16 bg-gradient-to-l from-transparent to-wedding-gold" />
         </div>
 
-        {/* Guest Personalized Greeting Card */}
+        {/* Respectful Universal Greeting */}
         <div className="bg-white/10 border border-white/15 rounded-xl p-4 mb-8 backdrop-blur-md">
           <p className="text-xs text-gray-300 font-light mb-1">
-            Kepada Yth. Bapak/Ibu/Saudara/i:
+            Kepada Yth. Bapak/Ibu/Saudara/i
           </p>
-          <p className="text-lg sm:text-xl font-serif font-semibold text-wedding-gold-light tracking-wide break-words">
-            {guestName}
-          </p>
-          <p className="text-[11px] text-gray-400 mt-1 italic">
-            *Mohon maaf apabila ada kesalahan penulisan nama/gelar
+          <p className="text-sm sm:text-base font-serif italic text-wedding-gold-light tracking-wide">
+            Kami mengundang Anda untuk hadir dalam momen bahagia pernikahan kami
           </p>
         </div>
 

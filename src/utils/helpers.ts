@@ -1,11 +1,10 @@
 import { weddingConfig } from '../config/wedding'
 
 /**
- * Extracts the personalized guest name from the browser URL parameters
- * Handles: ?to=..., ?u=..., ?nama=..., ?guest=...
+ * Extracts the personalized guest name from the browser URL parameters (if any)
  */
 export function getGuestNameFromUrl(): string {
-  if (typeof window === 'undefined') return 'Tamu Undangan'
+  if (typeof window === 'undefined') return ''
 
   try {
     const searchParams = new URLSearchParams(window.location.search)
@@ -23,45 +22,50 @@ export function getGuestNameFromUrl(): string {
     console.warn('Failed to parse guest URL query params', e)
   }
 
-  return 'Tamu Undangan'
+  return ''
 }
 
 /**
- * Generates a full personalized guest invitation URL
+ * Generates the clean official invitation URL
  */
-export function generateGuestUrl(guestName: string, customBaseUrl?: string): string {
+export function generateGuestUrl(guestName?: string, customBaseUrl?: string): string {
   const base =
     customBaseUrl ||
     weddingConfig.meta.baseUrl ||
     (typeof window !== 'undefined' ? window.location.origin : 'https://wedding-invitation-dssssssss.vercel.app')
+
+  if (!guestName || guestName.trim().length === 0) {
+    return base
+  }
 
   const encodedName = encodeURIComponent(guestName.trim()).replace(/%20/g, '+')
   return `${base}/?to=${encodedName}`
 }
 
 /**
- * Generates an aesthetic WhatsApp broadcast invitation message complete with Venue and Google Maps link
+ * Generates an aesthetic WhatsApp broadcast invitation message with Venue, Maps, and clean Link
  */
 export function generateWhatsAppBroadcastMessage(
-  guestName: string,
-  guestUrl: string
+  _guestName?: string,
+  _guestUrl?: string
 ): string {
   const groom = weddingConfig.couple.groom.name
   const bride = weddingConfig.couple.bride.name
   const date = weddingConfig.wedding.date
   const venue = weddingConfig.wedding.akad.venue
   const mapsUrl = weddingConfig.wedding.akad.mapsUrl
+  const inviteUrl = weddingConfig.meta.baseUrl || 'https://wedding-invitation-dssssssss.vercel.app/'
 
   return (
     `Kepada Yth.\n` +
-    `Bapak/Ibu/Saudara/i: *${guestName}*\n\n` +
+    `Bapak/Ibu/Saudara/i & Keluarga\n\n` +
     `Tanpa mengurangi rasa hormat, perkenankan kami mengundang Anda untuk hadir dan memberikan doa restu pada hari bahagia pernikahan kami:\n\n` +
     `*${groom} & ${bride}*\n\n` +
     `*Waktu:* ${date}\n` +
     `*Lokasi:* ${venue}\n` +
     `*Petunjuk Arah (Maps):* ${mapsUrl}\n\n` +
     `Untuk melihat detail seluruh rangkaian acara, reservasi kehadiran & ucapan doa, silakan buka tautan undangan resmi berikut:\n` +
-    `${guestUrl}\n\n` +
+    `${inviteUrl}\n\n` +
     `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.\n\n` +
     `Terima kasih.\n` +
     `Salam hangat,\n` +

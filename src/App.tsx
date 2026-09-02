@@ -106,7 +106,6 @@ export const App: React.FC = () => {
 
       {/* Opening Curtain / Cover */}
       <OpeningCover
-        guestName={guestName}
         isOpen={isOpen}
         onOpen={handleOpenInvitation}
       />

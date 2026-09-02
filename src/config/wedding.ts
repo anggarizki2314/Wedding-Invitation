@@ -175,8 +175,8 @@ export const weddingConfig: WeddingConfig = {
   // 8. Musik Latar Belakang (Audio Player)
   music: {
     src: "/music/wedding-song.mp3",
-    title: "Pernikahan Kita (Acoustic Piano)",
-    artist: "Romantic Wedding",
+    title: "Pernikahan Kita - Tiara Andini & Arsy Widianto",
+    artist: "Tiara Andini & Arsy Widianto",
     autoplayOnOpen: true,
   },
 

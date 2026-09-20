@@ -22,7 +22,7 @@ export const weddingConfig: WeddingConfig = {
     rsvp: true,              // Formulir konfirmasi kehadiran RSVP
     wishes: true,            // Buku tamu ucapan & doa restu
     gift: true,              // Tanda kasih / Amplop digital rekening bank
-    qris: true,              // Pop-up QRIS pembayaran (hanya muncul jika true)
+    qris: false,             // Pop-up QRIS pembayaran (hanya muncul jika true)
     liveStream: false,       // Siaran langsung YouTube/Zoom (opsional)
     healthProtocol: false,   // Panduan & etiket acara (opsional)
     guestLinkGenerator: true // Tool generator link WhatsApp untuk memudahkan mempelai
@@ -202,7 +202,7 @@ export const weddingConfig: WeddingConfig = {
       },
     ],
     qris: {
-      enabled: true,
+      enabled: false,
       image: "/images/qris.png",
     },
     physicalGiftAddress: {

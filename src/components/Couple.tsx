@@ -50,7 +50,7 @@ export const Couple: React.FC = () => {
                   alt={groom.fullName}
                   fallbackText={groom.fullName}
                   loading="lazy"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
             </div>
@@ -99,7 +99,7 @@ export const Couple: React.FC = () => {
                   alt={bride.fullName}
                   fallbackText={bride.fullName}
                   loading="lazy"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
             </div>

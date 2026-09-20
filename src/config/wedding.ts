@@ -1,15 +1,4 @@
-import { WeddingConfig } from './types'
-
-/**
- * =======================================================================
- * PUSAT KONFIGURASI UTAMA WEBSITE UNDANGAN PERNIKAHAN
- * =======================================================================
- * Semua data, status fitur, teks, nama mempelai, tanggal, rekening,
- * dan URL tersimpan di file ini.
- * 
- * Komponen website 100% membaca konfigurasi ini secara modular.
- * =======================================================================
- */
+import { WeddingConfig } from "./types"
 
 export const weddingConfig: WeddingConfig = {
   // 1. Feature Flags (Aktifkan / Nonaktifkan fitur sesuai kebutuhan)
@@ -30,144 +19,144 @@ export const weddingConfig: WeddingConfig = {
 
   // 2. Metadata SEO & Preview WhatsApp / Social Media
   meta: {
-    title: "The Wedding of Rizki & Amelia | 12.12.2026",
-    description: "Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dalam momen istimewa pernikahan kami. Rizki & Amelia.",
+    title: "The Wedding of Agsal & Fanny | 04.10.2026",
+    description: "Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dalam momen istimewa pernikahan kami. Agsal & Fanny.",
     ogImage: "/images/og-preview.jpg",
-    hashtag: "#RizkiAmeliaInLove",
+    hashtag: "#AgsalFannyInLove",
     baseUrl: "https://wedding-invitation-dssssssss.vercel.app"
   },
 
   // 3. Data Mempelai (Couple)
   couple: {
     groom: {
-      name: "Rizki",
-      fullName: "Rizki Pratama, S.T.",
-      nickname: "Rizki",
-      childOrder: "Putra pertama dari",
-      parents: "Bpk. Bambang Wijaya & Ibu Siti Rohmah",
+      name: "Agsal",
+      nickname: "Agsal",
+      fullName: "Agsal Jilhamsah",
+      childOrder: "Putra kedua dari",
+      parents: "Bapak H. Edi Fahrudin S & Ibu Asih",
       photo: "/images/groom.jpg",
       social: {
         platform: "instagram",
-        username: "@rizkipratama",
-        url: "https://instagram.com/rizkipratama",
+        username: "",
+        url: "#",
       },
     },
     bride: {
-      name: "Amelia",
-      fullName: "Amelia Putri, S.Farm.",
-      nickname: "Amelia",
+      name: "Fanny",
+      nickname: "Fanny",
+      fullName: "Defanny Fania Putri",
       childOrder: "Putri kedua dari",
-      parents: "Bpk. Hendra Gunawan & Ibu Nurhayati",
+      parents: "Alm. Bapak Ahmad Fatoni & Ibu Dedeh",
       photo: "/images/bride.jpg",
       social: {
         platform: "instagram",
-        username: "@ameliaputri",
-        url: "https://instagram.com/ameliaputri",
+        username: "",
+        url: "#",
       },
     },
   },
 
-  // 4. Detail Acara Pernikahan (Akad & Resepsi)
-  wedding: {
-    date: "Sabtu, 12 Desember 2026",
-    countdownDate: "2026-12-12T08:00:00+07:00",
-
-    akad: {
-      title: "Akad Nikah",
-      subtitle: "Momen Sakral Ijab & Qabul",
-      dayName: "Sabtu",
-      date: "12 Desember 2026",
-      time: "08:00 - 10:00",
-      timezone: "WIB",
-      venue: "Grand Ballroom Hotel Indonesia Kempinski",
-      address: "Jl. M.H. Thamrin No.1, Menteng, Jakarta Pusat, DKI Jakarta 10310",
-      mapsUrl: "https://maps.google.com/?q=Hotel+Indonesia+Kempinski+Jakarta",
-      mapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322964!2d106.8206123!3d-6.1947413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4219a584061%3A0x6b13cf14a1e94119!2sHotel%20Indonesia%20Kempinski%20Jakarta!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid",
-      calendarDateStart: "20261212T080000",
-      calendarDateEnd: "20261212T100000",
-    },
-
-    reception: {
-      title: "Resepsi Pernikahan",
-      subtitle: "Perayaan & Ramah Tamah",
-      dayName: "Sabtu",
-      date: "12 Desember 2026",
-      time: "11:00 - 14:00",
-      timezone: "WIB",
-      venue: "Grand Ballroom Hotel Indonesia Kempinski",
-      address: "Jl. M.H. Thamrin No.1, Menteng, Jakarta Pusat, DKI Jakarta 10310",
-      mapsUrl: "https://maps.google.com/?q=Hotel+Indonesia+Kempinski+Jakarta",
-      mapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322964!2d106.8206123!3d-6.1947413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4219a584061%3A0x6b13cf14a1e94119!2sHotel%20Indonesia%20Kempinski%20Jakarta!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid",
-      calendarDateStart: "20261212T110000",
-      calendarDateEnd: "20261212T140000",
-    },
-  },
-
-  // 5. Ayat Suci / Kutipan Romantis
+  // 4. Kutipan Romantis / Ayat Suci (Quote Section)
   quote: {
-    arabicText: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً",
     text: "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.",
     source: "QS. Ar-Rum: 21",
+    arabicText: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً",
   },
 
-  // 6. Perjalanan Cinta (Our Love Story)
+  // 5. Informasi Rangkaian Acara (Akad & Resepsi)
+  wedding: {
+    date: "Minggu, 4 Oktober 2026",
+    countdownDate: "2026-10-04T08:00:00+07:00",
+
+    // Detail Akad Nikah
+    akad: {
+      title: "Akad Nikah",
+      subtitle: "Prosesi Ijab Kabul & Penyatuan Janji Suci",
+      dayName: "Minggu",
+      date: "4 Oktober 2026",
+      time: "08:00 - 09:00",
+      timezone: "WIB",
+      venue: "Rumah Mempelai Pria",
+      address: "Desa Cicadas RT 03 RW 23, Kecamatan Gunung Putri, Kab. Bogor 16964",
+      mapsUrl: "https://maps.app.goo.gl/TA8sGS1ePW3HFMVm9",
+      calendarDateStart: "20261004T080000",
+      calendarDateEnd: "20261004T090000",
+    },
+
+    // Detail Resepsi Pernikahan
+    reception: {
+      title: "Resepsi Pernikahan",
+      subtitle: "Perayaan & Ramah Tamah Kebahagiaan",
+      dayName: "Minggu",
+      date: "4 Oktober 2026",
+      time: "10:00 - Selesai",
+      timezone: "WIB",
+      venue: "Rumah Mempelai Pria",
+      address: "Desa Cicadas RT 03 RW 23, Kecamatan Gunung Putri, Kab. Bogor 16964",
+      mapsUrl: "https://maps.app.goo.gl/TA8sGS1ePW3HFMVm9",
+      calendarDateStart: "20261004T100000",
+      calendarDateEnd: "20261004T160000",
+    },
+  },
+
+  // 6. Kisah Perjalanan Cinta (Our Love Story)
   story: [
     {
       year: "2021",
       title: "Pertemuan Pertama",
-      description: "Takdir mempertemukan kami dalam sebuah seminar teknologi di Jakarta. Percakapan santai di sela acara menjadi awal dari persahabatan yang indah.",
+      description: "Awal perjumpaan yang penuh makna, merajut percakapan hangat yang menjadi awal dari kisah indah kami.",
     },
     {
-      year: "2022",
+      year: "2023",
       title: "Menjalin Komitmen",
-      description: "Setelah saling mengenal dan menemukan banyak kesamaan visi hidup, kami memutuskan untuk melangkah bersama dalam ikatan komitmen yang lebih serius.",
+      description: "Menemukan kesamaan visi hidup dan melangkah bersama dalam ikatan komitmen yang lebih serius.",
     },
     {
       year: "2025",
-      title: "Momen Lamaran (The Proposal)",
-      description: "Di bawah langit sore yang indah dan disaksikan kedua keluarga besar, kami mengikat janji pertunangan untuk melangkah ke jenjang pernikahan.",
+      title: "Momen Lamaran",
+      description: "Di hadapan kedua keluarga besar, kami mengikat janji suci pertunangan untuk menuju jenjang pernikahan.",
     },
     {
       year: "2026",
       title: "Hari Bahagia (The Wedding)",
-      description: "Dengan izin Allah SWT dan restu kedua orang tua tercinta, kami siap menyatukan langkah dalam ikatan suci pernikahan abadi.",
+      description: "Menyatukan langkah dan hati dalam ikatan suci pernikahan yang diridhoi Allah SWT.",
     },
   ],
 
   // 7. Galeri Foto Prewedding
   gallery: {
-    title: "Momen Bahagia",
-    subtitle: "Potret kenangan dan perjalanan cinta kami",
+    title: "Galeri Kebahagiaan",
+    subtitle: "Momen-momen indah perjalanan kami menuju hari bahagia",
     images: [
       {
-        url: "/images/cover.jpg",
-        alt: "Rizki & Amelia Wedding Portrait",
-        caption: "Bersama merajut masa depan impian",
-      },
-      {
         url: "/images/gallery-01.jpg",
-        alt: "Wedding Rings and Bouquet",
-        caption: "Simbol ikatan cinta abadi",
+        alt: "Prewedding Agsal & Fanny 1",
+        caption: "A New Journey Begins",
       },
       {
         url: "/images/gallery-02.jpg",
-        alt: "Romantic Walk in Garden",
-        caption: "Langkah bersama menuju lembaran baru",
+        alt: "Prewedding Agsal & Fanny 2",
+        caption: "Bound by Love",
       },
       {
         url: "/images/gallery-03.jpg",
-        alt: "Intimate Couple Portrait",
-        caption: "Kehangatan cinta dalam setiap tatapan",
+        alt: "Prewedding Agsal & Fanny 3",
+        caption: "Together Forever",
       },
       {
         url: "/images/gallery-04.jpg",
-        alt: "Groom Portrait",
-        caption: "Momen bahagia sang mempelai",
+        alt: "Prewedding Agsal & Fanny 4",
+        caption: "Warm Embrace",
       },
       {
         url: "/images/gallery-05.jpg",
-        alt: "Bride Portrait",
-        caption: "Senyuman manis di hari yang dinanti",
+        alt: "Prewedding Agsal & Fanny 5",
+        caption: "Cherished Moments",
+      },
+      {
+        url: "/images/gallery-06.jpg",
+        alt: "Prewedding Agsal & Fanny 6",
+        caption: "Eternal Promise",
       },
     ],
   },
@@ -186,19 +175,14 @@ export const weddingConfig: WeddingConfig = {
     description: "Doa restu Anda merupakan karunia terindah bagi kami. Namun jika Anda ingin memberikan tanda kasih secara digital, Anda dapat menggunakan fasilitas berikut:",
     accounts: [
       {
-        bank: "Bank Central Asia (BCA)",
-        accountNumber: "8830123456",
-        accountName: "RIZKI PRATAMA",
+        bank: "Bank CIMB Niaga",
+        accountNumber: "762504546400",
+        accountName: "AGSAL JILHAMSAH",
       },
       {
-        bank: "Bank Mandiri",
-        accountNumber: "1370012345678",
-        accountName: "AMELIA PUTRI",
-      },
-      {
-        bank: "Bank Syariah Indonesia (BSI)",
-        accountNumber: "7123456789",
-        accountName: "RIZKI PRATAMA",
+        bank: "ShopeePay",
+        accountNumber: "088809011376",
+        accountName: "AGSAL JILHAMSAH",
       },
     ],
     qris: {
@@ -206,26 +190,26 @@ export const weddingConfig: WeddingConfig = {
       image: "/images/qris.png",
     },
     physicalGiftAddress: {
-      recipient: "Rizki & Amelia",
-      phone: "0812-3456-7890",
-      address: "Jl. Boulevard Indah No. 88, Menteng Residence, Jakarta Pusat 10350",
+      recipient: "Agsal & Fanny",
+      phone: "0815-1768-6536",
+      address: "Desa Cicadas RT 03 RW 23, Kecamatan Gunung Putri, Kab. Bogor 16964",
     },
   },
 
   // 10. RSVP & Konfirmasi Kehadiran (Provider Abstraction)
   rsvp: {
     provider: "none", // 'none' | 'google-sheets' | 'webhook'
-    googleSheetsEndpoint: "", // Masukkan Web App URL dari Google Apps Script jika provider = 'google-sheets'
-    webhookUrl: "",          // Masukkan URL webhook jika provider = 'webhook'
-    whatsappNumber: "6281234567890", // Ganti dengan nomor WhatsApp Anda (tanpa tanda + atau spasi)
+    googleSheetsEndpoint: "",
+    webhookUrl: "",
+    whatsappNumber: "6281517686536", // Nomor WhatsApp Agsal untuk konfirmasi RSVP
     maxGuestsPerRSVP: 4,
   },
 
   // 11. Live Streaming (Opsional)
   liveStream: {
     platform: "YouTube",
-    url: "https://youtube.com/live/wedding-rizki-amelia",
-    time: "Sabtu, 12 Desember 2026 | 08:00 WIB",
+    url: "https://youtube.com/live/wedding-agsal-fanny",
+    time: "Minggu, 4 Oktober 2026 | 08:00 WIB",
   },
 
   // 12. Protokol Acara (Etiket Tamu)
@@ -249,7 +233,7 @@ export const weddingConfig: WeddingConfig = {
       {
         icon: "Sparkles",
         title: "Dresscode Elegan",
-        desc: "Disarankan mengenakan busana bernuansa Pastel / Gold / Formal.",
+        desc: "Disarankan mengenakan busana bernuansa Batik / Pastel / Formal.",
       },
     ],
   },

@@ -129,32 +129,32 @@ export const weddingConfig: WeddingConfig = {
     subtitle: "Momen-momen indah perjalanan kami menuju hari bahagia",
     images: [
       {
-        url: "/images/gallery-01.jpg",
+        url: "/images/gallery-01.jpg?v=2",
         alt: "Prewedding Agsal & Fanny 1",
         caption: "A New Journey Begins",
       },
       {
-        url: "/images/gallery-02.jpg",
+        url: "/images/gallery-02.jpg?v=2",
         alt: "Prewedding Agsal & Fanny 2",
         caption: "Bound by Love",
       },
       {
-        url: "/images/gallery-03.jpg",
+        url: "/images/gallery-03.jpg?v=2",
         alt: "Prewedding Agsal & Fanny 3",
         caption: "Together Forever",
       },
       {
-        url: "/images/gallery-04.jpg",
+        url: "/images/gallery-04.jpg?v=2",
         alt: "Prewedding Agsal & Fanny 4",
         caption: "Warm Embrace",
       },
       {
-        url: "/images/gallery-05.jpg",
+        url: "/images/gallery-05.jpg?v=2",
         alt: "Prewedding Agsal & Fanny 5",
         caption: "Cherished Moments",
       },
       {
-        url: "/images/gallery-06.jpg",
+        url: "/images/gallery-06.jpg?v=2",
         alt: "Prewedding Agsal & Fanny 6",
         caption: "Eternal Promise",
       },

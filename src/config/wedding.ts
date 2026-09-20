@@ -201,7 +201,7 @@ export const weddingConfig: WeddingConfig = {
     provider: "google-sheets", // Live Google Sheets Database
     googleSheetsEndpoint: "https://script.google.com/macros/s/AKfycbzN1GFSEhPbjMOIUPbpS33UlFjWC1ZUS4k7ViiTqLF5h3kpIjbxPleEy4d7wYaWpku-/exec",
     webhookUrl: "",
-    whatsappNumber: "6288225649436", // Nomor WhatsApp untuk uji coba konfirmasi RSVP
+    whatsappNumber: "6281517686536", // Nomor WhatsApp Agsal untuk konfirmasi RSVP
     maxGuestsPerRSVP: 4,
   },
 

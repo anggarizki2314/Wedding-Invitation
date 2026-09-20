@@ -28,7 +28,7 @@ export class RSVPService {
 
         if (response.ok) {
           const liveData: WishItem[] = await response.json()
-          if (Array.isArray(liveData) && liveData.length > 0) {
+          if (Array.isArray(liveData)) {
             return { wishes: liveData, source: 'live' }
           }
         }
@@ -64,7 +64,7 @@ export class RSVPService {
   }
 
   /**
-   * Submits a new RSVP & Wish to configured backend and updates local store
+   * Submits a new RSVP & Wish to configured backend
    */
   static async submitRSVP(payload: RSVPPayload): Promise<{ success: boolean; message: string }> {
     const { rsvp } = weddingConfig
@@ -75,9 +75,6 @@ export class RSVPService {
       message: payload.message,
       time: 'Baru saja',
     }
-
-    // Always update local cache for instant UI responsiveness
-    this.saveLocalWish(newWish)
 
     // 1. Google Sheets (Google Apps Script Web App)
     if (rsvp.provider === 'google-sheets' && rsvp.googleSheetsEndpoint) {
@@ -94,10 +91,11 @@ export class RSVPService {
 
         return {
           success: true,
-          message: 'Konfirmasi RSVP berhasil terkirim ke database Google Sheets!',
+          message: 'Konfirmasi RSVP berhasil terkirim ke Google Sheets!',
         }
       } catch (err) {
         console.warn('Failed to post to Google Sheets, saved locally:', err)
+        this.saveLocalWish(newWish)
         return {
           success: true,
           message: 'Konfirmasi tersimpan secara lokal di browser Anda.',
@@ -121,46 +119,61 @@ export class RSVPService {
           }
         }
       } catch (err) {
-        console.warn('Failed to post to Webhook, saved locally:', err)
+        console.warn('Failed to post to webhook, fallback to local storage:', err)
       }
     }
 
-    // 3. Local mode (provider === 'none')
+    // 3. Fallback Local Storage
+    this.saveLocalWish(newWish)
     return {
       success: true,
-      message: 'Konfirmasi & ucapan Anda berhasil disimpan!',
+      message: 'Konfirmasi tersimpan di browser Anda.',
     }
   }
 
   /**
-   * Reads cached wishes from LocalStorage
+   * Helper: Get stored wishes from browser LocalStorage
    */
-  static getLocalWishes(presets: WishItem[]): WishItem[] {
+  private static getLocalWishes(presets: WishItem[]): WishItem[] {
+    if (typeof window === 'undefined') return presets
+
     try {
       const stored = localStorage.getItem(LOCAL_STORAGE_KEY)
       if (stored) {
-        const parsed = JSON.parse(stored)
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          return parsed
-        }
+        const parsed: WishItem[] = JSON.parse(stored)
+        return [...parsed, ...presets]
       }
-    } catch {
-      // Ignore fallback
+    } catch (e) {
+      console.warn('Failed to parse local wishes storage', e)
     }
+
     return presets
   }
 
   /**
-   * Prepend new wish to LocalStorage
+   * Helper: Save wish to browser LocalStorage
    */
-  static saveLocalWish(wish: WishItem): WishItem[] {
+  private static saveLocalWish(wish: WishItem): void {
+    if (typeof window === 'undefined') return
+
     try {
-      const current = this.getLocalWishes(weddingConfig.presetWishes)
-      const updated = [wish, ...current]
+      const existing = this.getLocalWishes([])
+      const updated = [wish, ...existing]
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updated))
-      return updated
-    } catch {
-      return [wish]
+    } catch (e) {
+      console.warn('Failed to save wish to local storage', e)
+    }
+  }
+
+  /**
+   * Helper: Clear local wishes cache
+   */
+  static clearLocalCache(): void {
+    if (typeof window === 'undefined') return
+    try {
+      localStorage.removeItem(LOCAL_STORAGE_KEY)
+    } catch (e) {
+      console.warn('Failed to clear local wishes storage', e)
     }
   }
 }

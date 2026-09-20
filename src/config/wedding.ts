@@ -196,10 +196,10 @@ export const weddingConfig: WeddingConfig = {
     },
   },
 
-  // 10. RSVP & Konfirmasi Kehadiran (Provider Abstraction)
+  // 10. RSVP & Konfirmasi Kehadiran (Live Google Sheets Database)
   rsvp: {
-    provider: "none", // 'none' | 'google-sheets' | 'webhook'
-    googleSheetsEndpoint: "",
+    provider: "google-sheets", // Live Google Sheets Database
+    googleSheetsEndpoint: "https://script.google.com/macros/s/AKfycbzN1GFSEhPbjMOIUPbpS33UlFjWC1ZUS4k7ViiTqLF5h3kpIjbxPleEy4d7wYaWpku-/exec",
     webhookUrl: "",
     whatsappNumber: "6288225649436", // Nomor WhatsApp untuk uji coba konfirmasi RSVP
     maxGuestsPerRSVP: 4,

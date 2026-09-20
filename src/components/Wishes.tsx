@@ -5,11 +5,11 @@ import { WishItem } from '../config/types'
 
 interface WishesProps {
   wishes: WishItem[]
-  dataSource: 'live' | 'local'
+  dataSource?: 'live' | 'local'
   onRefresh?: () => void
 }
 
-export const Wishes: React.FC<WishesProps> = ({ wishes, dataSource, onRefresh }) => {
+export const Wishes: React.FC<WishesProps> = ({ wishes, onRefresh }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const { features } = weddingConfig
   const itemsPerPage = 5
@@ -41,12 +41,6 @@ export const Wishes: React.FC<WishesProps> = ({ wishes, dataSource, onRefresh })
             <p className="text-xs sm:text-sm text-wedding-muted">
               ({wishes.length}) Ucapan dari keluarga dan sahabat tercinta
             </p>
-            {dataSource === 'live' && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                Live Database
-              </span>
-            )}
             {onRefresh && (
               <button
                 onClick={onRefresh}

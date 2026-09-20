@@ -201,7 +201,7 @@ export const weddingConfig: WeddingConfig = {
     provider: "none", // 'none' | 'google-sheets' | 'webhook'
     googleSheetsEndpoint: "",
     webhookUrl: "",
-    whatsappNumber: "6281517686536", // Nomor WhatsApp Agsal untuk konfirmasi RSVP
+    whatsappNumber: "6288225649436", // Nomor WhatsApp untuk uji coba konfirmasi RSVP
     maxGuestsPerRSVP: 4,
   },
 

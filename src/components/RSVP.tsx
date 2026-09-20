@@ -1,29 +1,29 @@
 import React, { useState } from 'react'
-import { Send, CheckCircle2, MessageSquare, Users, User } from 'lucide-react'
+import { CheckCircle2, User, Users, MessageSquare, Send, Check } from 'lucide-react'
 import { weddingConfig } from '../config/wedding'
-import { createWhatsAppRSVPUrl } from '../utils/helpers'
 import { RSVPService } from '../services/rsvpService'
+import { createWhatsAppRSVPUrl } from '../utils/helpers'
 
 interface RSVPProps {
-  initialGuestName: string
-  onRSVPSubmitted: () => void
   showToast: (text: string, type?: 'success' | 'error' | 'info') => void
+  onRSVPSubmitted: () => void
+  initialGuestName?: string
 }
 
 export const RSVP: React.FC<RSVPProps> = ({
-  initialGuestName,
-  onRSVPSubmitted,
   showToast,
+  onRSVPSubmitted,
+  initialGuestName = '',
 }) => {
-  const { rsvp, features } = weddingConfig
-  const [name, setName] = useState(
-    initialGuestName !== 'Tamu Undangan' ? initialGuestName : ''
-  )
+  const [name, setName] = useState(initialGuestName)
   const [attendance, setAttendance] = useState<'Hadir' | 'Tidak Hadir' | 'Belum Pasti'>('Hadir')
-  const [guestCount, setGuestCount] = useState<number>(1)
+  const [guestCount, setGuestCount] = useState(1)
   const [message, setMessage] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [whatsappRedirectUrl, setWhatsappRedirectUrl] = useState<string | null>(null)
+
+  const { features, rsvp } = weddingConfig
 
   if (!features.rsvp) return null
 
@@ -31,7 +31,7 @@ export const RSVP: React.FC<RSVPProps> = ({
     e.preventDefault()
 
     if (!name.trim()) {
-      showToast('Silakan masukkan nama Anda terlebih dahulu.', 'error')
+      showToast('Mohon masukkan nama lengkap Anda', 'error')
       return
     }
 
@@ -48,7 +48,7 @@ export const RSVP: React.FC<RSVPProps> = ({
       // Notify parent to refresh wishes list
       onRSVPSubmitted()
 
-      // If RSVP has whatsapp number, give option to also send to WhatsApp
+      // Generate WhatsApp confirmation URL
       if (rsvp.whatsappNumber) {
         const waUrl = createWhatsAppRSVPUrl(
           rsvp.whatsappNumber,
@@ -57,9 +57,13 @@ export const RSVP: React.FC<RSVPProps> = ({
           guestCount,
           message.trim()
         )
-        // Only auto open if provider is not webhook
-        if (rsvp.provider === 'none') {
+        setWhatsappRedirectUrl(waUrl)
+        
+        // Auto open WhatsApp in new tab
+        try {
           window.open(waUrl, '_blank')
+        } catch {
+          // Ignore popup block
         }
       }
 
@@ -98,15 +102,35 @@ export const RSVP: React.FC<RSVPProps> = ({
                 Terima Kasih atas Konfirmasinya!
               </h3>
               <p className="text-sm text-wedding-charcoal mb-6 max-w-md mx-auto">
-                Konfirmasi kehadiran Anda telah tercatat. Doa restu Anda sangat berarti bagi kami.
+                Konfirmasi kehadiran &amp; doa restu Anda telah berhasil tersimpan dan tampil di Buku Tamu.
               </p>
-              <button
-                type="button"
-                onClick={() => setSubmitted(false)}
-                className="px-6 py-2 rounded-full border border-wedding-gold text-wedding-dark text-xs font-semibold hover:bg-wedding-cream transition-colors cursor-pointer"
-              >
-                Kirim Konfirmasi Lain
-              </button>
+
+              {whatsappRedirectUrl && (
+                <div className="mb-6">
+                  <a
+                    href={whatsappRedirectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-xs shadow-md hover:scale-105 transition-all"
+                  >
+                    <Send className="w-4 h-4" />
+                    <span>Kirim Pesan Konfirmasi ke WhatsApp</span>
+                  </a>
+                </div>
+              )}
+
+              <div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSubmitted(false)
+                    setWhatsappRedirectUrl(null)
+                  }}
+                  className="px-6 py-2 rounded-full border border-wedding-gold text-wedding-dark text-xs font-semibold hover:bg-wedding-cream transition-colors cursor-pointer"
+                >
+                  Kirim Konfirmasi Lain
+                </button>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -123,8 +147,8 @@ export const RSVP: React.FC<RSVPProps> = ({
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="Contoh: Dimas Aditya & Partner"
-                    className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-wedding-sand text-wedding-dark text-sm focus:outline-none focus:ring-2 focus:ring-wedding-gold focus:border-transparent transition-all"
+                    placeholder="Contoh: Bapak Joko &amp; Keluarga"
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-wedding-sand bg-white/70 focus:bg-white focus:outline-none focus:ring-2 focus:ring-wedding-gold/50 focus:border-wedding-gold text-sm transition-all"
                   />
                 </div>
               </div>
@@ -133,23 +157,20 @@ export const RSVP: React.FC<RSVPProps> = ({
                 <label className="block text-xs font-semibold uppercase tracking-wider text-wedding-dark mb-2">
                   Konfirmasi Kehadiran <span className="text-red-500">*</span>
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {[
-                    { key: 'Hadir', label: 'Ya, Saya Hadir' },
-                    { key: 'Tidak Hadir', label: 'Maaf, Tidak Hadir' },
-                    { key: 'Belum Pasti', label: 'Masih Ragu' },
-                  ].map((option) => (
+                <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                  {(['Hadir', 'Tidak Hadir', 'Belum Pasti'] as const).map((status) => (
                     <button
-                      key={option.key}
+                      key={status}
                       type="button"
-                      onClick={() => setAttendance(option.key as any)}
-                      className={`p-3 rounded-xl border text-xs sm:text-sm font-medium transition-all text-center flex items-center justify-center gap-2 cursor-pointer ${
-                        attendance === option.key
-                          ? 'bg-wedding-dark text-white border-wedding-dark shadow-md'
-                          : 'bg-white border-wedding-sand text-wedding-charcoal hover:border-wedding-gold'
+                      onClick={() => setAttendance(status)}
+                      className={`py-3 px-2 sm:px-4 rounded-xl text-xs font-semibold border transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                        attendance === status
+                          ? 'bg-wedding-dark text-wedding-gold border-wedding-dark shadow-md'
+                          : 'bg-white/60 text-wedding-charcoal border-wedding-sand hover:bg-white'
                       }`}
                     >
-                      <span>{option.label}</span>
+                      {attendance === status && <Check className="w-3.5 h-3.5" />}
+                      <span>{status}</span>
                     </button>
                   ))}
                 </div>
@@ -158,7 +179,7 @@ export const RSVP: React.FC<RSVPProps> = ({
               {attendance === 'Hadir' && (
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-wedding-dark mb-2">
-                    Jumlah Tamu
+                    Jumlah Tamu yang Hadir
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-wedding-muted">
@@ -167,7 +188,7 @@ export const RSVP: React.FC<RSVPProps> = ({
                     <select
                       value={guestCount}
                       onChange={(e) => setGuestCount(Number(e.target.value))}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-wedding-sand text-wedding-dark text-sm focus:outline-none focus:ring-2 focus:ring-wedding-gold focus:border-transparent transition-all"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-wedding-sand bg-white/70 focus:bg-white focus:outline-none focus:ring-2 focus:ring-wedding-gold/50 focus:border-wedding-gold text-sm transition-all cursor-pointer"
                     >
                       {Array.from({ length: rsvp.maxGuestsPerRSVP || 4 }, (_, i) => i + 1).map(
                         (num) => (
@@ -186,15 +207,15 @@ export const RSVP: React.FC<RSVPProps> = ({
                   Ucapan &amp; Doa Restu
                 </label>
                 <div className="relative">
-                  <div className="absolute top-3 left-3.5 pointer-events-none text-wedding-muted">
+                  <div className="absolute top-3.5 left-3.5 pointer-events-none text-wedding-muted">
                     <MessageSquare className="w-4 h-4" />
                   </div>
                   <textarea
                     rows={4}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Tuliskan doa dan ucapan selamat untuk kedua mempelai..."
-                    className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-wedding-sand text-wedding-dark text-sm focus:outline-none focus:ring-2 focus:ring-wedding-gold focus:border-transparent transition-all"
+                    placeholder="Tuliskan ucapan dan doa restu untuk kedua mempelai..."
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-wedding-sand bg-white/70 focus:bg-white focus:outline-none focus:ring-2 focus:ring-wedding-gold/50 focus:border-wedding-gold text-sm transition-all resize-none"
                   />
                 </div>
               </div>
@@ -202,10 +223,16 @@ export const RSVP: React.FC<RSVPProps> = ({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="gold-shimmer-btn w-full py-3.5 rounded-xl font-sans text-sm font-semibold tracking-wider uppercase text-wedding-dark shadow-luxury flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-98 transition-all disabled:opacity-50 cursor-pointer"
+                className="gold-shimmer-btn w-full py-3.5 rounded-xl font-sans text-sm font-bold uppercase tracking-wider text-wedding-dark shadow-luxury hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
-                <Send className="w-4 h-4" />
-                <span>{isSubmitting ? 'Mengirimkan...' : 'Kirim Konfirmasi & Ucapan'}</span>
+                {isSubmitting ? (
+                  <span>Mengirimkan...</span>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>Kirim Konfirmasi Kehadiran</span>
+                  </>
+                )}
               </button>
             </form>
           )}

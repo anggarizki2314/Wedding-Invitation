@@ -254,35 +254,6 @@ export const weddingConfig: WeddingConfig = {
     ],
   },
 
-  // 13. Ucapan Awal Bawaan (Preset Fallback Wishes)
-  presetWishes: [
-    {
-      id: "wish-1",
-      name: "Dimas & Sarah",
-      attendance: "Hadir",
-      message: "Selamat menempuh hidup baru Rizki dan Amelia! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah. Bahagia selalu sampai kakek nenek! Aamiin.",
-      time: "2 jam yang lalu",
-    },
-    {
-      id: "wish-2",
-      name: "Bpk. Rahmat Santoso (Keluarga Besar Alumni)",
-      attendance: "Hadir",
-      message: "Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khoir. Selamat atas pernikahannya Rizki & Amelia, semoga senantiasa diberkahi kelimpahan rezeki.",
-      time: "5 jam yang lalu",
-    },
-    {
-      id: "wish-3",
-      name: "dr. Citra Anindya",
-      attendance: "Hadir",
-      message: "Happy wedding Amel tersayang! MasyaAllah akhirnya hari yang dinanti tiba juga. Cantik banget pasti, can't wait to see you both on Saturday!",
-      time: "Kemarin",
-    },
-    {
-      id: "wish-4",
-      name: "Arif Hidayat & Partner",
-      attendance: "Belum Pasti",
-      message: "Selamat ya Bro Rizki! Lancar-lancar sampai hari H. Semoga dilancarkan semua persiapan dan acaranya nanti.",
-      time: "2 hari yang lalu",
-    },
-  ],
+  // 13. Ucapan Awal & Doa Restu (Kosong secara default, akan terisi otomatis saat tamu mengirim RSVP)
+  presetWishes: [],
 }

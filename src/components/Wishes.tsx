@@ -62,48 +62,62 @@ export const Wishes: React.FC<WishesProps> = ({ wishes, dataSource, onRefresh })
 
         {/* Wishes List Container */}
         <div className="space-y-4">
-          {displayedWishes.map((wish) => (
-            <div
-              key={wish.id}
-              className="glass-card p-5 sm:p-6 rounded-2xl border border-wedding-gold/25 shadow-sm hover:border-wedding-gold/50 transition-all"
-            >
-              <div className="flex items-start justify-between gap-3 mb-2.5">
-                <div>
-                  <h4 className="font-serif text-base sm:text-lg font-bold text-wedding-dark">
-                    {wish.name}
-                  </h4>
-                  <span className="text-[11px] text-wedding-muted">
-                    {wish.time}
-                  </span>
-                </div>
-
-                <div>
-                  {wish.attendance === 'Hadir' && (
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                      <Check className="w-3 h-3" />
-                      <span>Hadir</span>
-                    </span>
-                  )}
-                  {wish.attendance === 'Tidak Hadir' && (
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-rose-50 text-rose-700 border border-rose-200">
-                      <XCircle className="w-3 h-3" />
-                      <span>Tidak Hadir</span>
-                    </span>
-                  )}
-                  {wish.attendance === 'Belum Pasti' && (
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-700 border border-amber-200">
-                      <HelpCircle className="w-3 h-3" />
-                      <span>Belum Pasti</span>
-                    </span>
-                  )}
-                </div>
+          {displayedWishes.length === 0 ? (
+            <div className="glass-card p-8 sm:p-10 rounded-2xl border border-wedding-gold/25 text-center shadow-sm">
+              <div className="w-12 h-12 rounded-full bg-wedding-gold/15 flex items-center justify-center mx-auto mb-3 text-wedding-gold">
+                <MessageCircleHeart className="w-6 h-6" />
               </div>
-
-              <p className="text-xs sm:text-sm text-wedding-charcoal leading-relaxed">
-                {wish.message}
+              <h4 className="font-serif text-lg font-bold text-wedding-dark mb-1">
+                Belum Ada Ucapan
+              </h4>
+              <p className="text-xs sm:text-sm text-wedding-muted max-w-md mx-auto">
+                Jadilah yang pertama mengirimkan konfirmasi kehadiran dan doa restu untuk kedua mempelai melalui formulir di atas.
               </p>
             </div>
-          ))}
+          ) : (
+            displayedWishes.map((wish) => (
+              <div
+                key={wish.id}
+                className="glass-card p-5 sm:p-6 rounded-2xl border border-wedding-gold/25 shadow-sm hover:border-wedding-gold/50 transition-all"
+              >
+                <div className="flex items-start justify-between gap-3 mb-2.5">
+                  <div>
+                    <h4 className="font-serif text-base sm:text-lg font-bold text-wedding-dark">
+                      {wish.name}
+                    </h4>
+                    <span className="text-[11px] text-wedding-muted">
+                      {wish.time}
+                    </span>
+                  </div>
+
+                  <div>
+                    {wish.attendance === 'Hadir' && (
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                        <Check className="w-3 h-3" />
+                        <span>Hadir</span>
+                      </span>
+                    )}
+                    {wish.attendance === 'Tidak Hadir' && (
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-rose-50 text-rose-700 border border-rose-200">
+                        <XCircle className="w-3 h-3" />
+                        <span>Tidak Hadir</span>
+                      </span>
+                    )}
+                    {wish.attendance === 'Belum Pasti' && (
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                        <HelpCircle className="w-3 h-3" />
+                        <span>Belum Pasti</span>
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <p className="text-xs sm:text-sm text-wedding-charcoal leading-relaxed">
+                  {wish.message}
+                </p>
+              </div>
+            ))
+          )}
         </div>
 
         {/* Pagination Controls */}

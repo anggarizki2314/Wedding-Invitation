@@ -1,40 +1,40 @@
 📋 FORMULIR DATA WEBSITE UNDANGAN PERNIKAHAN
 
-Mohon lengkapi data berikut untuk pembuatan website undangan pernikahan Anda:
+Silakan lengkapi data berikut untuk pembuatan / penggantian data website undangan pernikahan:
 
 1. DATA MEMPELAI PRIA
-• Nama Panggilan: 
-• Nama Lengkap & Gelar: 
+• Nama Panggilan: (Contoh: Rizki)
+• Nama Lengkap & Gelar: (Contoh: Rizki Pratama, S.T.)
 • Anak ke berapa: (Contoh: Putra pertama dari)
-• Nama Orang Tua (Bapak & Ibu): 
-• Akun Instagram: 
+• Nama Orang Tua (Bapak & Ibu): (Contoh: Bpk. Bambang & Ibu Siti)
+• Username Instagram: (Contoh: @rizkipratama - opsional)
 
 2. DATA MEMPELAI WANITA
-• Nama Panggilan: 
-• Nama Lengkap & Gelar: 
+• Nama Panggilan: (Contoh: Amelia)
+• Nama Lengkap & Gelar: (Contoh: Amelia Putri, S.Farm.)
 • Anak ke berapa: (Contoh: Putri kedua dari)
-• Nama Orang Tua (Bapak & Ibu): 
-• Akun Instagram: 
+• Nama Orang Tua (Bapak & Ibu): (Contoh: Bpk. Hendra & Ibu Nurhayati)
+• Username Instagram: (Contoh: @ameliaputri - opsional)
 
 3. DETAIL ACARA
-• Hari & Tanggal: (Contoh: Sabtu, 12 Desember 2026)
+• Hari & Tanggal Acara: (Contoh: Sabtu, 12 Desember 2026)
 • Jam Akad Nikah: (Contoh: 08.00 - 10.00 WIB)
 • Jam Resepsi: (Contoh: 11.00 - 14.00 WIB)
-• Nama Tempat / Gedung: 
-• Alamat Lengkap: 
-• Link Google Maps Lokasi: 
+• Nama Tempat / Gedung: (Contoh: Grand Ballroom Hotel Indonesia Kempinski)
+• Alamat Lengkap Gedung: (Contoh: Jl. M.H. Thamrin No.1, Menteng, Jakarta Pusat)
+• Link Google Maps Lokasi: (Contoh: https://maps.google.com/?q=...)
 
-4. AMPLOP DIGITAL / REKENING BANK
-• Bank 1: (Nama Bank - No. Rekening - Atas Nama)
-• Bank 2: (Nama Bank - No. Rekening - Atas Nama)
-• Foto Barcode QRIS: (Kirim foto QRIS jika ada)
-• Alamat Kirim Kado Fisik: (Nama Penerima - No HP - Alamat Rumah)
+4. AMPLOP DIGITAL (REKENING BANK) & KADO FISIK
+• Rekening Bank 1: (Nama Bank - No. Rekening - Atas Nama)
+• Rekening Bank 2: (Nama Bank - No. Rekening - Atas Nama - opsional)
+• Alamat Pengiriman Kado Fisik: (Nama Penerima - No HP - Alamat Rumah)
 
-5. KONFIRMASI RSVP
-• Nomor WhatsApp Penerima Konfirmasi: 
+5. KONFIRMASI KEHADIRAN (RSVP)
+• Nomor WhatsApp Penerima Notifikasi RSVP: (Contoh: 081234567890)
 
-6. ASSET FOTO & MUSIK
-• Foto Utama Berdua (1 foto)
-• Foto Satuan Mempelai Pria & Wanita (masing-masing 1 foto)
-• Foto Galeri Prewedding (3–6 foto)
-• Request Lagu Pernikahan: (Judul Lagu & Penyanyi)
+6. FILE FOTO & LAGU PERNIKAHAN
+• Foto Utama Berdua (1 foto untuk Sampul Depan / Cover)
+• Foto Satuan Mempelai Pria (1 foto)
+• Foto Satuan Mempelai Wanita (1 foto)
+• Foto Galeri Prewedding (3 sampai 6 foto)
+• Request Judul Lagu Pernikahan: (Judul Lagu & Penyanyi atau Link YouTube)

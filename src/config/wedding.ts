@@ -23,7 +23,7 @@ export const weddingConfig: WeddingConfig = {
     description: "Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dalam momen istimewa pernikahan kami. Agsal & Fanny.",
     ogImage: "/images/og-preview.jpg",
     hashtag: "#AgsalFannyInLove",
-    baseUrl: "https://wedding-angsal-devani.vercel.app"
+    baseUrl: "https://wedding-agsal-fanny.vercel.app"
   },
 
   // 3. Data Mempelai (Couple)

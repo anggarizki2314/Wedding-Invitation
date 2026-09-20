@@ -32,7 +32,7 @@ export function generateGuestUrl(guestName?: string, customBaseUrl?: string): st
   const base =
     customBaseUrl ||
     weddingConfig.meta.baseUrl ||
-    (typeof window !== 'undefined' ? window.location.origin : 'https://wedding-angsal-devani.vercel.app')
+    (typeof window !== 'undefined' ? window.location.origin : 'https://wedding-agsal-fanny.vercel.app')
 
   if (!guestName || guestName.trim().length === 0) {
     return base
@@ -55,7 +55,7 @@ export function generateWhatsAppBroadcastMessage(
   const date = weddingConfig.wedding.date
   const venue = weddingConfig.wedding.akad.venue
   const mapsUrl = weddingConfig.wedding.akad.mapsUrl
-  const inviteUrl = weddingConfig.meta.baseUrl || 'https://wedding-angsal-devani.vercel.app/'
+  const inviteUrl = weddingConfig.meta.baseUrl || 'https://wedding-agsal-fanny.vercel.app/'
 
   return (
     `Assalamu’alaikum Warahmatullahi Wabarakatuh / Salam Sejahtera,\n\n` +

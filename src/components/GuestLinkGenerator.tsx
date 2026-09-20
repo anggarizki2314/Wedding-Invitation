@@ -14,7 +14,7 @@ export const GuestLinkGenerator: React.FC<GuestLinkGeneratorProps> = ({ showToas
 
   if (!weddingConfig.features.guestLinkGenerator) return null
 
-  const inviteUrl = weddingConfig.meta.baseUrl || 'https://wedding-angsal-devani.vercel.app/'
+  const inviteUrl = weddingConfig.meta.baseUrl || 'https://wedding-agsal-fanny.vercel.app/'
   const broadcastText = generateWhatsAppBroadcastMessage()
 
   const handleCopyLink = async () => {
